@@ -10,16 +10,16 @@ namespace Twitter
             Console.WriteLine("Enter height and width of the tower");
             height = int.Parse(Console.ReadLine()!);
             width = int.Parse(Console.ReadLine()!);
-            if (height == width || Math.Abs(height - width) == 5)
+            if (height == width || Math.Abs(height - width) > 5)
             {
-                Console.WriteLine("The rectangle's area is: " + height * width);
+                Console.WriteLine("The rectangle's area is: " + (height * width));
             }
             else
             {
-                Console.WriteLine("The rectangle's perimeter is: " + 2 * height + 2 * width);
+                Console.WriteLine("The rectangle's perimeter is: " + (2 * height + 2 * width));
             }
         }
-        private static void triangular()
+        private static void triangle()
         {
             int choice = 0, height, width;
             Console.WriteLine("Enter height and width of the tower");
@@ -34,7 +34,7 @@ namespace Twitter
             switch (choice)
             {
                 case 1:
-                    Console.WriteLine("The triangular's perimeter: " + height + 2 * Math.Sqrt(Math.Pow(height, 2) + Math.Pow(0.5 * width, 2)));
+                    Console.WriteLine("The triangle's perimeter: " + (width + 2 * Math.Sqrt(Math.Pow(height, 2) + Math.Pow(0.5 * width, 2))));
                     break;
 
                 case 2:
@@ -93,7 +93,7 @@ namespace Twitter
             try
             {
                 int choice = 0;
-                Console.WriteLine("Enter 1 to rectangle tower\n2 to triangular tower\n 3 to exit ");
+                Console.WriteLine("Enter 1 to rectangle tower\n2 to triangle tower\n 3 to exit ");
                 if (!int.TryParse(Console.ReadLine(), out choice))
                 {
                     throw new Exception("Invalid input. Please enter a valid choice.");
@@ -110,7 +110,7 @@ namespace Twitter
                         case 2:
                             try
                             {
-                                triangular();
+                                triangle();
                             }
                             catch (Exception e)
                             {
@@ -124,7 +124,7 @@ namespace Twitter
                         default:
                             throw new Exception("your choice is invalid");
                     }
-                    Console.WriteLine("Enter 1 to rectangle tower\n2 to triangular tower\n 3 to exit ");
+                    Console.WriteLine("Enter 1 to rectangle tower\n2 to triangle tower\n 3 to exit ");
                     if (!int.TryParse(Console.ReadLine(), out choice))
                     {
                         throw new Exception("Invalid input. Please enter a valid choice.");
